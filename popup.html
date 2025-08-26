@@ -105,6 +105,52 @@
             margin-top: 8px;
             line-height: 1.4;
         }
+        
+        .info code {
+            background: #f0f0f0;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 11px;
+        }
+        
+        .style-section {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+        }
+        
+        .preview-box {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+        
+        .reset-btn {
+            background: #ff9800;
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+        
+        .reset-btn:hover {
+            background: #f57c00;
+        }
     </style>
 </head>
 <body>
@@ -116,17 +162,45 @@
     </div>
     
     <div class="section">
-        <label for="domainInput">添加允许自动转换的域名:</label>
-        <input type="text" id="domainInput" placeholder="例如: example.com">
+        <label for="domainInput">添加允许自动转换的域名模式:</label>
+        <input type="text" id="domainInput" placeholder="例如: example.com 或 *.example.com">
         <button id="addBtn">添加</button>
+        <div class="info" style="margin-top: 8px;">
+            <strong>支持的模式:</strong><br>
+            • <code>example.com</code> - 精确匹配<br>
+            • <code>*.example.com</code> - 匹配所有子域名<br>
+            • <code>.example.com</code> - 匹配域名及其子域名<br>
+            • <code>test*.com</code> - 通配符匹配<br>
+            • <code>*.*.com</code> - 多级通配符匹配
+        </div>
     </div>
     
     <div class="section">
-        <label>已启用的域名:</label>
+        <label>已启用的域名模式:</label>
         <div class="domain-list" id="domainList"></div>
         <div class="info">
-            留空则在所有网站上运行。添加域名后仅在指定域名上运行。
+            留空则在所有网站上运行。添加模式后仅在匹配的域名上运行。
         </div>
+    </div>
+    
+    <div class="style-section">
+        <label><strong>解码文本样式设置:</strong></label>
+        <div class="info" style="margin-bottom: 12px;">
+            直接输入CSS样式代码，例如：background-color: #e8f5e8; color: #2e7d32;
+        </div>
+        
+        <textarea id="customCSS" placeholder="background-color: #e8f5e8 !important;
+color: #2e7d32 !important;
+border-left: 3px solid #4caf50 !important;
+padding: 2px 4px !important;
+border-radius: 3px !important;
+font-weight: 500 !important;"></textarea>
+        
+        <div class="preview-box">
+            <span id="preview">这是解码文本的预览效果</span>
+        </div>
+        
+        <button class="reset-btn" id="resetStyleBtn">恢复默认样式</button>
     </div>
     
     <script src="popup.js"></script>
