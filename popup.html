@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 350px;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+            color: #1976d2;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .domain-list {
+            max-height: 120px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            margin-top: 8px;
+            background: #f9f9f9;
+        }
+        
+        .domain-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .domain-item:last-child {
+            border-bottom: none;
+        }
+        
+        button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        button:hover {
+            background: #1565c0;
+        }
+        
+        .remove-btn {
+            background: #f44336;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+        
+        .remove-btn:hover {
+            background: #d32f2f;
+        }
+        
+        .current-domain {
+            background: #e3f2fd;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+        
+        .add-current {
+            background: #4caf50;
+            margin-left: 8px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        
+        .add-current:hover {
+            background: #45a049;
+        }
+        
+        .info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Base64 解码器设置</h1>
+    
+    <div class="current-domain">
+        <strong>当前域名:</strong> <span id="currentDomain"></span>
+        <button class="add-current" id="addCurrentBtn">添加当前域名</button>
+    </div>
+    
+    <div class="section">
+        <label for="domainInput">添加允许自动转换的域名:</label>
+        <input type="text" id="domainInput" placeholder="例如: example.com">
+        <button id="addBtn">添加</button>
+    </div>
+    
+    <div class="section">
+        <label>已启用的域名:</label>
+        <div class="domain-list" id="domainList"></div>
+        <div class="info">
+            留空则在所有网站上运行。添加域名后仅在指定域名上运行。
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

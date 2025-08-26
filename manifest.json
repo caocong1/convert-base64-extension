@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Base64 Decoder",
+  "version": "1.0.0",
+  "description": "Automatically detect and decode Base64 strings on web pages",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Base64 Decoder Settings"
+  }
+}

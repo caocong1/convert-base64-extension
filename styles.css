@@ -1,0 +1,18 @@
+.base64-decoded {
+    background-color: #e8f5e8 !important;
+    border-left: 3px solid #4caf50 !important;
+    padding: 2px 4px !important;
+    margin: 0 2px !important;
+    border-radius: 3px !important;
+    font-weight: 500 !important;
+    color: #2e7d32 !important;
+    box-shadow: 0 1px 3px rgba(76, 175, 80, 0.2) !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.base64-decoded:hover {
+    background-color: #c8e6c9 !important;
+    box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
